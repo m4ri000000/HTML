@@ -1,0 +1,52 @@
+.container {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    left: 200px;
+    top: 150px;
+}
+
+.card {
+    position: absolute;
+    width: 130px;
+    height: 180px;
+    background-size: cover;
+}
+
+.card:hover {
+    border: 5px solid red;
+}
+
+.card:active {
+    z-index: 1;
+}
+
+.card1 {
+    background-image: url(imagenes/d_10.gif);
+    top: 0;
+    left: 0;
+}
+
+.card2 {
+    background-image: url(imagenes/d_j.gif);
+    top: 30px;
+    left: 30px;
+}
+
+.card3 {
+    background-image: url(imagenes/d_reina.gif);
+    top: 60px;
+    left: 60px;
+}
+
+.card4 {
+    background-image: url(imagenes/d_rey.gif);
+    top: 90px;
+    left: 90px;
+}
+
+.card5 {
+    background-image: url(imagenes/d_as.gif);
+    top: 120px;
+    left: 120px;
+}

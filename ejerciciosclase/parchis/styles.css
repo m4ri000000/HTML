@@ -5,7 +5,6 @@ body {
 table {
     margin: auto;
     background-color: white;
-
 }
 
 td {
@@ -13,27 +12,18 @@ td {
     height: 20px;
 }
 
-h1 {
-    text-align: center;
-    color: white;
-}
-
 .amarillo {
     background-color: yellow;
-    text-align: center;
 }
 
 .verde {
     background-color: green;
-    text-align: center;
 }
 
 .azul {
     background-color: blue;
-    text-align: center;
 }
 
 .rojo {
     background-color: red;
-    text-align: center;
 }
