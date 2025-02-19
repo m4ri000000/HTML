@@ -37,7 +37,7 @@ h3 {
 
 #menu ul ul {
     position: absolute;
-    left: 199px;
+    left: 100%;
     top: 0;
     width: 200px;
     background-color: yellow;
@@ -52,7 +52,6 @@ h3 {
 
 #menu ul li:hover > ul {
     visibility: visible;
-    opacity: 1;
 }
 
 #menu ul li a {
