@@ -1,0 +1,46 @@
+* {
+    color: olive;
+}
+h1 {
+    color: teal;
+}
+
+h2 {
+    color: blue;
+}
+
+strong {
+    color: orange;
+}
+
+span {
+    color: fuchsia;
+}
+
+a {
+    color: red;
+}
+
+td {
+    color: green;
+}
+
+td em {
+    color: blue;
+}
+
+a em {
+    color: blue;
+}
+
+th {
+    color: red;
+}
+
+caption {
+    color: blue;
+}
+
+ins {
+    color: purple;
+}

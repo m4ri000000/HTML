@@ -1,0 +1,64 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/*primer menu*/
+
+#menu {
+    width: 200px;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul li {
+    position: relative;
+    background-color: orange;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#menu ul li:hover {
+    background-color: black;
+    color: white;
+}
+
+/*segundo menu*/
+
+#menu ul ul {
+    position: absolute;
+    left: 199px;
+    top: 0;
+    width: 200px;
+    background-color: yellow;
+    visibility: hidden;
+}
+
+#menu ul ul li {
+    background-color: yellow;
+    color: black;
+    padding: 10px;
+}
+
+#menu ul li:hover > ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+#menu ul li a {
+    text-decoration: none;
+}
+
+#menu ul li:hover > a {
+    color: white;
+}
