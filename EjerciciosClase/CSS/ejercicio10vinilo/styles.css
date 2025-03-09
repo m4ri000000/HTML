@@ -1,0 +1,52 @@
+.album-container {
+    position: relative;
+    width: 300px; 
+    height: 250px;
+    cursor: pointer;
+}
+
+.album {
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.cd {
+    position: absolute;
+    width: 220px; 
+    top: 60%;
+    right: -130px;
+    transform: translateX(-90%) translateY(-50%) rotate(0deg); 
+    transition: transform 0.7s ease-out;
+    z-index: 1; 
+}
+
+.title {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    top: 100px;
+    z-index: 3;
+    padding: 8px;
+    visibility: hidden;
+}
+
+.album-container:hover .cd {
+    transform: translateX(0.1px) translateY(-50%) rotate(180deg); 
+}
+
+.album-container:hover .title {
+    visibility: visible;
+}
+
+.band {
+    position: relative;
+    top: 50px;  
+    font-size: 20px;  
+    text-transform: uppercase;
+}
+

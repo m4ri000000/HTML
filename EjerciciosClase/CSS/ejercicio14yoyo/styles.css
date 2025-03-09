@@ -1,0 +1,16 @@
+#yoyo {
+    position: absolute;
+    left: 251px;
+    top: 348px;
+    animation: yoyoMovement 1s infinite alternate ease-in-out;
+    z-index: 1;
+}
+
+@keyframes yoyoMovement {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100px);
+    }
+}

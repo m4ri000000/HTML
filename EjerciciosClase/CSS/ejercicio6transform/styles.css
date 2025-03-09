@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    border: 3px solid black;
+    border-radius: 40px;
+    padding: 10px;
+    margin: 10px;
+    width: 25%;
+    text-align: center;
+    font-weight: bold;
+    float: left;
+}
+
+div img {
+    margin-top: 10px;
+    width: 70%;
+    margin-left: 50px;
+}
+
+#rotar1 {
+    transform: rotate(45deg);
+}
+
+#rotar2 {
+    transform: rotate(-45deg);
+}
+
+#escala1 {
+    transform: scale(0.4);
+}
+
+#escala2 {
+    transform: scale(0.5, 1);
+}
+
+#skewX1 {
+    transform: skewX(20deg);
+}
+
+#skewX2 {
+    margin-left: 30px;
+    transform: skewX(-20deg);
+}
+
+#skewY1 {
+    transform: skewY(20deg);
+}
+
+#skewY2 {
+    transform: skewY(-20deg);
+}
+
+#translate1 {
+    transform: translate(60px, 100px);
+}
+
+#translate2 {
+    transform: translate(80px, -40px);
+}
+
+#contentBox1:hover {
+    transform: skewX(-20deg);
+}
