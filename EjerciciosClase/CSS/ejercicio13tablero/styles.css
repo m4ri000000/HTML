@@ -1,0 +1,24 @@
+table {
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+td {
+    border: 2px solid black;
+}
+
+.tabla1 td:nth-child(odd) {
+    background-color: black;
+}
+
+.tabla2 tr:nth-child(even) {
+    background-color: black;
+}
+
+.tabla3 tr:nth-child(odd) td:nth-child(odd),
+.tabla3 tr:nth-child(even) td:nth-child(even) {
+  background-color: black; 
+}
