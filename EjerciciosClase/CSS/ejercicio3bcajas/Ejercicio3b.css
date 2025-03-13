@@ -1,0 +1,36 @@
+body {
+    background: url(notepad.jpg) repeat-y;
+    background-color: lightyellow;
+    margin-left: 136px;
+}
+h1 {
+    border: solid white;
+    color: white;
+    background-color: teal;
+    padding-left: 70;
+    margin-right: 200;
+}
+h2 {
+    background-color: salmon;
+    color: lightyellow;
+    margin-right: 100;
+}
+div>div {
+    color: red;
+}
+ul {
+    background-color: lightblue;
+}
+li {
+    border: dashed blue;
+    background-color: white;
+    margin-bottom: 10;
+    padding: 15;
+    margin-right: 100;
+}
+a {
+    color: lime;
+}
+p {
+    margin-left: 30;
+}

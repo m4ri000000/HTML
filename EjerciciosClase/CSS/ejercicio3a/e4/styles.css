@@ -1,0 +1,32 @@
+.uno {
+    padding: 10px;
+    border: 3px dotted green;
+    margin: 10px auto;
+}
+
+.dos {
+    padding: 10px;
+    border: 3px dotted red;
+    margin: 10px auto;
+    background-color: lightcyan;
+}
+
+.tres {
+    padding: 10px;
+    border: 2px dotted green;
+    margin: 10px auto;
+}
+
+.uno p {
+    padding: 5px;
+    border: 3px solid cyan;
+    margin: 10px auto;
+    background-color: mistyrose;
+}
+
+.dos p {
+    padding: 5px;
+    border: 5px solid black;
+    margin: 10px auto;
+    background-color: white;
+}

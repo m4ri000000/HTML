@@ -1,0 +1,13 @@
+.uno {
+    border: 5px solid red;
+}
+
+.dos {
+    border: 5px solid blue;
+    padding: 25px;
+}
+
+.tres {
+    border: 5px solid green;
+    padding: 50px;
+}
