@@ -12,22 +12,17 @@ fieldset {
     margin-bottom: 15px;
 }
 
-/* Oculta inicialmente las opciones usando max-height y opacity */
 .info-options {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
-/* Al marcar el checkbox, se expanden las opciones */
 #recibir_info:checked + .info-options {
-    max-height: 500px; /* Ajusta este valor según el contenido real */
+    max-height: 500px;
     opacity: 1;
 }
 
-/* Forzar que las etiquetas se apilen en columna sin usar display: block,
-   utilizando float, clear y width */
 .info-options label {
     float: left;
     clear: both;
@@ -39,7 +34,6 @@ fieldset {
     margin-top: 10px;
 }
 
-/* Aplica clear y margen superior al botón para moverlo 50px hacia abajo */
 .submit-btn {
     clear: both;
     margin-top: 50px;

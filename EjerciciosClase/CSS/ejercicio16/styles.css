@@ -1,0 +1,30 @@
+.shape {
+    border: 10px solid rgb(161, 0, 0);
+    width: 600px;
+    height: 100px;
+    border-radius: 9999px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.shape::before, 
+.shape::after {
+    content: "";
+    position: absolute;
+    border: 10px solid rgb(161, 0, 0);
+    border-radius: 50%;
+    bottom: -35px;
+}
+
+.shape::before {
+    right: 60px;
+    width: 40px;
+    height: 40px;
+}
+
+.shape::after {
+    right: 20px;
+    bottom: -60px;
+    width: 20px;
+    height: 20px;
+}
