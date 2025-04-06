@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>JavaScript DOM</title>
+</head>
+<body>
+  <div id="page">
+    <div id="header"><h1 id="title">título</h1></div>
+    <div id="content">
+      <h2>contenido del titulo</h2>
+      <p>algo copiado iría aqui</p>
+      <p>más cosas aqui</p>
+    </div>
+  </div>
+  <script>
+    var nodo = document.body.children[0];
+    alert("El propio nodo: " + nodo.nodeName);
+    alert("Su hermano anterior: " + nodo.previousSibling.nodeName);
+    alert("Su hermano posterior: " + nodo.nextSibling.nodeName);
+    alert("El padre del nodo: " + nodo.parentNode.nodeName);
+    alert("¿Tiene nodos hijo?: " + nodo.hasChildNodes());
+    alert("Número de hijos: " + nodo.childNodes.length);
+    alert("Número de elementos que tiene: " + nodo.children.length);
+    alert("Primer hijo: " + nodo.childNodes[0].nodeName);
+    alert("Segundo hijo: " + nodo.childNodes[1].nodeName);
+    alert("Primer elemento hijo: " + nodo.children[0].nodeName);
+    var headerDiv = nodo.children[0];
+    alert("Primer elemento hijo de div (header): " + headerDiv.children[0].nodeName);
+    alert("Número de hijos de su primer elemento: " + headerDiv.children[0].children.length);
+  </script>
+</body>
+</html>

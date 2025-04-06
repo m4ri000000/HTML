@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title>Galería de Imágenes</title>
+  <style>
+    .gallery {
+      text-align: center;
+      position: relative;
+    }
+
+    img {
+      width: 500px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 30px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .left {
+      left: 10px;
+      transform: translateY(-50%);
+    }
+
+    .right {
+      right: 10px;
+      transform: translateY(-50%);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery">
+    <button class="arrow left" onclick="changeImage(-1)">&#10094;</button>
+    <img id="image" src="image1.jpg" alt="Imagen">
+    <button class="arrow right" onclick="changeImage(1)">&#10095;</button>
+  </div>
+
+  <script>
+    var images = ['image1.jpg', 'image2.jpg'];
+    var currentIndex = 0;
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      
+      if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+      } else if (currentIndex >= images.length) {
+        currentIndex = 0;
+      }
+      
+      document.getElementById('image').src = images[currentIndex];
+    }
+  </script>
+
+</body>
+</html>

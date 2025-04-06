@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>Galería de Imágenes</title>
+    <style>
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-image {
+            width: 600px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .thumbs {
+            display: flex;
+            justify-content: center;
+        }
+
+        .thumb {
+            width: 100px;
+            height: auto;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .thumb:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gallery">
+        <img id="mainImage" class="main-image" src="image1.jpg" alt="Imagen principal">
+        <div class="thumbs">
+            <img class="thumb" src="image1.jpg" alt="Imagen 1" onmouseover="changeMainImage('image1.jpg')">
+            <img class="thumb" src="image2.jpg" alt="Imagen 2" onmouseover="changeMainImage('image2.jpg')">
+            <img class="thumb" src="image3.jpg" alt="Imagen 3" onmouseover="changeMainImage('image3.jpg')">
+            <img class="thumb" src="image4.jpg" alt="Imagen 4" onmouseover="changeMainImage('image4.jpg')">
+        </div>
+    </div>
+
+    <script>
+        function changeMainImage(imageSrc) {
+            document.getElementById('mainImage').src = imageSrc;
+        }
+    </script>
+
+</body>
+
+</html>
