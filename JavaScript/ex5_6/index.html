@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Recordatorios</title>
+  <style>
+    #tituloLista {
+      display: none;
+      font-weight: bold;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <form id="formulario" onsubmit="return false;">
+    <input type="text" id="entrada" placeholder="elemento">
+    <button onclick="añadirFinal()">añadir final</button>
+    <button onclick="añadirPrincipio()">añadir principio</button>
+    <button onclick="borrarPrimero()">borrar el primero</button>
+    <button onclick="borrarUltimo()">borrar el último</button>
+    <button onclick="borrarTodos()">borrar todos</button>
+  </form>
+
+  <p id="tituloLista"><strong>LISTA</strong></p>
+  <ol id="lista"></ol>
+
+  <script>
+    const entrada = document.getElementById("entrada");
+    const lista = document.getElementById("lista");
+    const tituloLista = document.getElementById("tituloLista");
+
+    function actualizarTitulo() {
+      tituloLista.style.display = lista.children.length > 0 ? "block" : "none";
+    }
+
+    function crearElemento(texto) {
+      const item = document.createElement("li");
+      item.textContent = texto;
+
+      item.ondblclick = () => {
+        lista.removeChild(item);
+        actualizarTitulo();
+      };
+
+      return item;
+    }
+
+    function añadirFinal() {
+      if (entrada.value.trim() !== "") {
+        const item = crearElemento(entrada.value);
+        lista.appendChild(item);
+        entrada.value = "";
+        actualizarTitulo();
+      }
+    }
+
+    function añadirPrincipio() {
+      if (entrada.value.trim() !== "") {
+        const item = crearElemento(entrada.value);
+        lista.insertBefore(item, lista.firstChild);
+        entrada.value = "";
+        actualizarTitulo();
+      }
+    }
+
+    function borrarPrimero() {
+      if (lista.firstChild) {
+        lista.removeChild(lista.firstChild);
+        actualizarTitulo();
+      }
+    }
+
+    function borrarUltimo() {
+      if (lista.lastChild) {
+        lista.removeChild(lista.lastChild);
+        actualizarTitulo();
+      }
+    }
+
+    function borrarTodos() {
+      lista.innerHTML = "";
+      actualizarTitulo();
+    }
+  </script>
+</body>
+</html>

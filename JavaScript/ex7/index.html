@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Galería con Radio Buttons</title>
+  <style>
+    #galeria {
+      text-align: center;
+    }
+    #imagenPrincipal {
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+    .radios {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="galeria">
+    <img id="imagenPrincipal" src="" alt="Imagen principal">
+    <div id="radiosContainer" class="radios"></div>
+  </div>
+
+  <script>
+    //declaro las imagenes que voy a usar en mi html
+    const imagenes = [
+      "img/yes.jpg",
+      "img/antagonista.jpg",
+      "img/hadas.jpg",
+      "img/perfumito.jpg"
+    ];
+    //capturo los elementos del html que voy a usar en mi JS
+    const imagenPrincipal = document.getElementById("imagenPrincipal");
+    const radiosContainer = document.getElementById("radiosContainer");
+    //creo una funcion para ver las imagenes
+    function mostrarImagen(index) {
+      imagenPrincipal.src = imagenes[index];
+    }
+    //en base al numero de imagenes, creo el numero de botones (radios) que voy a poder seleccionar para ir de imagen en imagen
+    imagenes.forEach((imagen, index) => {
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "selectorImagen";
+      radio.value = index;
+    //por defecto muestro la primera
+      if (index === 0) {
+        radio.checked = true;
+        mostrarImagen(0);
+      }
+      //cambio de imagen al seleccionar el radio
+      radio.addEventListener("change", () => {
+        mostrarImagen(index);
+      });
+      //añado el radio al html
+      radiosContainer.appendChild(radio);
+    });
+  </script>
+
+</body>
+</html>
