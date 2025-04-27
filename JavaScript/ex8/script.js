@@ -51,7 +51,7 @@ function toggleTabla() {
     crearBola(posX, posY);
     const controlDiv = document.createElement("div");
     controlDiv.className = "control-buttons";
-    const botones = ["", "↑", "", "←", "O", "→", "", "↓", ""];
+    const botones = ["", "^", "", "<", "O", ">", "", "v", ""];
     botones.forEach(simbolo => {
       const div = document.createElement("div");
       if (simbolo !== "") {
@@ -97,10 +97,10 @@ function manejarMovimiento(direccion) {
   let nuevoX = posX;
   let nuevoY = posY;
   switch (direccion) {
-    case "↑": nuevoY--; break;
-    case "↓": nuevoY++; break;
-    case "←": nuevoX--; break;
-    case "→": nuevoX++; break;
+    case "^": nuevoY--; break;
+    case "v": nuevoY++; break;
+    case "<": nuevoX--; break;
+    case ">": nuevoX++; break;
     case "O":
       if (size % 2 === 1) {
         nuevoX = Math.floor(size / 2);
