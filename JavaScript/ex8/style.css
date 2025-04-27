@@ -1,13 +1,15 @@
 * {
-    font-family: 'Roboto mono', monospace;
+  font-family: 'Roboto Mono', monospace;
+  box-sizing: border-box;
 }
+
 body {
   margin: 0;
   padding: 20px;
 }
 
 label, input, button {
-  margin-right: 10px;
+  margin: 10px;
 }
 
 #tablaContainer {
@@ -23,7 +25,7 @@ table {
 td {
   width: 40px;
   height: 40px;
-  border: 1px solid black;
+  border: 2px solid black;
   text-align: center;
   vertical-align: middle;
 }
@@ -34,6 +36,7 @@ td {
   background-color: red;
   border-radius: 50%;
   margin: auto;
+  transition: all 0.3s ease;
 }
 
 .control-buttons {
@@ -42,10 +45,35 @@ td {
   grid-template-rows: 50px 50px 50px;
   gap: 5px;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .control-buttons button {
   width: 50px;
   height: 50px;
   font-size: 20px;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.control-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+#controlsColor, #controlsSize {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+#controlsColor label, #controlsSize label {
+  margin-right: 10px;
+}
+
+#controlsColor input, #controlsSize input {
+  width: 200px;
 }
