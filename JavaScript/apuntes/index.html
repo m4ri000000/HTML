@@ -1,0 +1,324 @@
+<div id="root">
+    <!-- Elements will be added here -->
+</div>
+
+<script>
+    // ✅ CREATE AN ELEMENT
+    const div = document.createElement('div');
+    div.textContent = 'Hello World!';
+    div.id = 'greeting';
+
+    // ✅ ADD IT TO A CONTAINER
+    const container = document.getElementById('root');
+
+    // 1️⃣ appendChild (only accepts one node at a time)
+    container.appendChild(div);
+    // => <div id="root"><div id="greeting">Hello World!</div></div>
+
+    // 2️⃣ prepend (puts it at the beginning)
+    const first = document.createElement('p');
+    first.textContent = 'I come first!';
+    container.prepend(first);
+    // => <div id="root"><p>I come first!</p><div id="greeting">Hello World!</div></div>
+
+    // 3️⃣ append (like appendChild, but can accept text and multiple nodes)
+    const note = document.createElement('p');
+    note.textContent = 'This is a note.';
+    container.append(' - extra text', note);
+    // => adds both text and <p> at the end
+
+    // 4️⃣ insertBefore (insert before a known child)
+    const second = document.createElement('p');
+    second.textContent = 'Inserted before greeting!';
+    container.insertBefore(second, div);
+    // => puts <p> before the existing <div id="greeting">
+
+    // 5️⃣ insertAdjacentElement (flexible placement)
+    const last = document.createElement('span');
+    last.textContent = 'I’m after!';
+    div.insertAdjacentElement('afterend', last);
+    // positions: 'beforebegin', 'afterbegin', 'beforeend', 'afterend'
+
+    // 6️⃣ removeChild
+    container.removeChild(second); // removes "Inserted before greeting!"
+
+    // 7️⃣ innerHTML (NOT RECOMMENDED for dynamic input creation)
+    container.innerHTML = '<strong>Careful!</strong>';
+</script>
+
+<!-- ✅ INPUT + LABEL BASICS -->
+<label for="username">Username:</label>
+<input type="text" id="username" name="username">
+
+<script>
+    // select input and label
+    const input = document.querySelector('input[type="text"]');
+    const label = document.querySelector('label[for="username"]');
+
+    // input event listener (fires on typing)
+    input.addEventListener('input', (e) => {
+        console.log('Current value:', e.target.value);
+    });
+</script>
+
+<!--CHARACTER COUNTER -->
+<label for="bio">Bio:</label>
+<input type="text" id="bio" maxlength="100">
+<small id="counter">0 / 100</small>
+
+<script>
+    const bio = document.getElementById('bio');
+    const counter = document.getElementById('counter');
+
+    bio.addEventListener('input', () => {
+        counter.textContent = `${bio.value.length} / ${bio.maxLength}`;
+    });
+</script>
+
+<!-- PASSWORD VISIBILITY TOGGLE -->
+<label for="password">Password:</label>
+<input type="password" id="password">
+<button type="button" id="toggle">Show</button>
+
+<script>
+    const pw = document.getElementById('password');
+    const toggle = document.getElementById('toggle');
+
+    toggle.addEventListener('click', () => {
+        const isHidden = pw.type === 'password';
+        pw.type = isHidden ? 'text' : 'password';
+        toggle.textContent = isHidden ? 'Hide' : 'Show';
+    });
+</script>
+
+<!-- FORM VALIDATION (EMAIL EXAMPLE) -->
+<form id="myForm">
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <span id="error" style="color:red;"></span>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    const form = document.getElementById('myForm');
+    const email = document.getElementById('email');
+    const error = document.getElementById('error');
+
+    form.addEventListener('submit', (e) => {
+        if (!email.value.includes('@')) {
+            e.preventDefault();
+            error.textContent = 'Invalid email!';
+        } else {
+            error.textContent = '';
+        }
+    });
+</script>
+
+<!-- CHECKBOX HANDLING -->
+<label>
+    <input type="checkbox" id="agree"> I agree to the terms
+</label>
+
+<script>
+    const agree = document.getElementById('agree');
+
+    agree.addEventListener('change', () => {
+        console.log('Checked?', agree.checked);
+    });
+</script>
+
+<!-- DISABLING INPUTS -->
+<input type="text" id="textInput">
+<button onclick="document.getElementById('textInput').disabled = true">Disable Input</button>
+
+<!-- FOCUSING INPUT -->
+<input type="text" id="focusInput">
+<button onclick="document.getElementById('focusInput').focus()">Focus Input</button>
+
+<!-- RADIO BUTTONS -->
+<label><input type="radio" name="gender" value="male"> Male</label>
+<label><input type="radio" name="gender" value="female"> Female</label>
+
+<script>
+    const radios = document.querySelectorAll('input[name="gender"]');
+    radios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            console.log('Selected:', radio.value);
+        });
+    });
+</script>
+
+<!-- SELECT DROPDOWN -->
+<select id="colors">
+    <option value="">Select a color</option>
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+</select>
+
+<script>
+    const select = document.getElementById('colors');
+
+    select.addEventListener('change', () => {
+        console.log('Selected color:', select.value);
+    });
+</script>
+
+<!-- FILE INPUT PREVIEW -->
+<input type="file" id="fileInput">
+<img id="preview" width="100">
+
+<script>
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('preview');
+
+    fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => preview.src = e.target.result;
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+<!-- USEFUL METHODS -->
+<script>
+    // input.value – get/set input value
+    // input.checked – for checkbox/radio
+    // input.type – get or set input type
+    // input.disabled = true – disable input
+    // input.focus() – focus input field
+</script>
+
+<div id="container"></div>
+
+<script>
+    // ✅ CREATE INPUT
+    const textInput = document.createElement('input');
+    textInput.type = 'text';
+    textInput.placeholder = 'Enter your name';
+    textInput.id = 'nameInput';
+    document.getElementById('container').appendChild(textInput);
+
+    // ✅ CREATE LABEL
+    const textlabel = document.createElement('label');
+    label.textContent = 'Your Name: ';
+    label.htmlFor = 'nameInput';
+    document.getElementById('container').prepend(label); // puts before input
+
+    // ✅ CREATE CHECKBOX
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = 'subscribe';
+
+    const checkboxLabel = document.createElement('label');
+    checkboxLabel.textContent = 'Subscribe to newsletter';
+    checkboxLabel.htmlFor = 'subscribe';
+
+    document.getElementById('container').appendChild(checkbox);
+    document.getElementById('container').appendChild(checkboxLabel);
+
+    // ✅ ADD CHECKBOX EVENT
+    checkbox.addEventListener('change', () => {
+        console.log('Subscribed?', checkbox.checked);
+    });
+
+    // ✅ CREATE RADIO BUTTONS
+    const genders = ['Male', 'Female', 'Other'];
+
+    genders.forEach((gender, index) => {
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'gender';
+        radio.value = gender.toLowerCase();
+        radio.id = `gender-${index}`;
+
+        const radioLabel = document.createElement('label');
+        radioLabel.textContent = gender;
+        radioLabel.htmlFor = radio.id;
+
+        document.getElementById('container').appendChild(radio);
+        document.getElementById('container').appendChild(radioLabel);
+    });
+
+    // ✅ HANDLE RADIO SELECTION
+    document.querySelectorAll('input[name="gender"]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            console.log('Selected gender:', radio.value);
+        });
+    });
+
+    // ✅ CREATE SELECT DROPDOWN
+    const inputselect = document.createElement('select');
+    select.id = 'colorSelect';
+
+    ['Red', 'Green', 'Blue'].forEach(color => {
+        const option = document.createElement('option');
+        option.value = color.toLowerCase();
+        option.textContent = color;
+        select.appendChild(option);
+    });
+
+    document.getElementById('container').appendChild(select);
+
+    // ✅ SELECT EVENT
+    select.addEventListener('change', () => {
+        console.log('Selected color:', select.value);
+    });
+</script>
+
+<div id="board"></div>
+
+<script>
+const board = document.getElementById('board');
+const table = document.createElement('table');
+table.style.borderCollapse = 'collapse';
+
+for (let row = 0; row < 8; row++) {
+  const tr = document.createElement('tr');
+
+  for (let col = 0; col < 8; col++) {
+    const td = document.createElement('td');
+    td.style.width = '40px';
+    td.style.height = '40px';
+    td.style.border = '1px solid black';
+
+    const isDark = (row + col) % 2 === 1;
+    td.style.backgroundColor = isDark ? '#000' : '#fff';
+
+    tr.appendChild(td);
+  }
+
+  table.appendChild(tr);
+}
+
+board.appendChild(table);
+</script>
+
+<div id="myTableContainer"></div>
+
+<script>
+const container = document.getElementById('myTableContainer');
+const table = document.createElement('table');
+
+for (let i = 0; i < 5; i++) {
+  const tr = document.createElement('tr');
+
+  for (let j = 0; j < 5; j++) {
+    const td = document.createElement('td');
+    td.textContent = `(${i},${j})`;
+    td.style.border = '1px solid black';
+    td.style.padding = '8px';
+
+    tr.appendChild(td);
+  }
+
+  table.appendChild(tr);
+}
+
+td.addEventListener('click', () => {
+  alert(`You clicked cell (${i},${j})`);
+});
+
+container.appendChild(table);
+</script>
