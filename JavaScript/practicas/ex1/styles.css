@@ -1,0 +1,63 @@
+* {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    padding-top: 20px;
+  }
+
+  #bgChanger {
+    width: 150px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .text,
+  .text2,
+  .counter,
+  .gallery,
+  .container {
+    align-self: flex-start;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .button-group button {
+    width: 130px;
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .dark-mode {
+    background-color: #1e1e1e;
+    color: white;
+  }
+
+  .dark-mode button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #666;
+  }
+
+  #nameInput {
+    width: 200px; 
+    height: 30px; 
+    font-size: 16px; 
+    margin-top: 5px;
+  }
