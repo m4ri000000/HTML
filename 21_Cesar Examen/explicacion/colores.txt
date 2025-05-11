@@ -1,4 +1,0 @@
-silver
-black
-white
-grey 

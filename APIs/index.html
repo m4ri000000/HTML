@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trivia Game</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f2f2f2; }
+    .question-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .question { font-size: 1.2em; margin-bottom: 10px; }
+    .option {
+      display: block;
+      margin-bottom: 8px;
+      padding: 8px 12px;
+      font-size: 1em;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fafafa;
+      text-align: left;
+    }
+    .option:disabled { opacity: 0.6; cursor: default; }
+    .correct { color: green; font-weight: bold; border-color: green; }
+    .wrong   { color: red;   font-weight: bold; border-color: red; }
+  </style>
+</head>
+<body>
+  <h1>Trivia Game</h1>
+  <div id="game-container"></div>
+
+  <script>
+    fetch('http://127.0.0.1:5000/questions')
+      .then(response => response.json())
+      .then(questions => {
+        const container = document.getElementById('game-container');
+
+        questions.forEach((q, index) => {
+          const card = document.createElement('div');
+          card.className = 'question-card';
+
+          const questionEl = document.createElement('div');
+          questionEl.className = 'question';
+          questionEl.textContent = `${index + 1}. ${q.question}`;
+          card.appendChild(questionEl);
+
+          q.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.textContent = opt;
+            btn.className = 'option';
+            card.appendChild(btn);
+
+            btn.addEventListener('click', () => {
+              const allBtns = card.querySelectorAll('button');
+              allBtns.forEach(b => b.disabled = true);
+
+              if (opt === q.answer) {
+                btn.classList.add('correct');
+              } else {
+                btn.classList.add('wrong');
+                allBtns.forEach(b => {
+                  if (b.textContent === q.answer) {
+                    b.classList.add('correct');
+                  }
+                });
+              }
+            });
+          });
+
+          container.appendChild(card);
+        });
+      })
+      .catch(err => console.error('Error loading trivia:', err));
+  </script>
+</body>
+</html>
